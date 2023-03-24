@@ -1,44 +1,35 @@
 
 # todo 1. Leistų žaisti dviems žaidėjams (X ir O).
 
-# Suformuoti zaidimo laukus
+# Kintamieji
 veiksmo_laukas = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 laimejimimo_salygos = ["123", "456", "789", "147", "258", "369", "159", "753",]
-
+max_ejimu = 0
+Zaidimas_vyksta = True
 X_laukai_laimejimui = []
 O_laukai_laimejimui = []
 X_eimu_str = ""
 O_eimu_str = ""
 
-# X_eimu_str = "1936"
-# for numeris in laimejimimo_salygos:
-#     laimingas_skaicius = []
-#     counter = 0
-#     for skaiciukas  in numeris:
-#         laimingas_skaicius.append(skaiciukas)
-#         if skaiciukas in X_eimu_str:
-#             counter += 1
-#     if counter == 3:
-#         print("Winner")
-#     # print(laimingas_skaicius)
-
-
+# Vaizdavimas
 print(veiksmo_laukas[7:10])
 print(veiksmo_laukas[4:7])
 print(veiksmo_laukas[1:4])
 
-# Suformuoti ivedimo mechanzma
-for _ in range(9):
+# Zaidimo eiga
+while Zaidimas_vyksta and max_ejimu != 9: # Lygiuju salyga
     # X zaidejas
     X_indeksas = int(input("Iveskite norimo pazymeti 'X' zenklu lauko numeri: ")) # Zaidejas pasirenka langeli
+    max_ejimu += 1
     X_laukai_laimejimui.append(str(X_indeksas))
     veiksmo_laukas[X_indeksas] = "X"
     X_eimu_str += str(X_indeksas)
     print(veiksmo_laukas[7:10])
     print(veiksmo_laukas[4:7])
     print(veiksmo_laukas[1:4])
-    # laimejimo tikrinimas
+    print(max_ejimu)
 
+    # X laimejimo tikrinimas
     for numeris in laimejimimo_salygos:
         laimingas_skaicius = []
         counter = 0
@@ -48,10 +39,12 @@ for _ in range(9):
                 counter += 1
         if counter == 3:
             print("X player is Winner!")
+            Zaidimas_vyksta = False
+
 
     # O zaidejas
-
     O_indeksas = int(input("Iveskite norimo pazymeti 'O' zenklu lauko numeri: ")) # Zaidejas pasirenka langeli
+    max_ejimu += 1
     O_laukai_laimejimui.append(str(O_indeksas))
     veiksmo_laukas[O_indeksas] = "O"
     O_eimu_str += str(O_indeksas)
@@ -59,9 +52,9 @@ for _ in range(9):
     print(veiksmo_laukas[7:10])
     print(veiksmo_laukas[4:7])
     print(veiksmo_laukas[1:4])
+    print(max_ejimu)
 
-    # laimejimo tikrinimas
-
+    # O laimejimo tikrinimas
     for numeris in laimejimimo_salygos:
         laimingas_skaicius = []
         counter = 0
@@ -71,6 +64,16 @@ for _ in range(9):
                 counter += 1
         if counter == 3:
             print("O player is Winner!")
+            Zaidimas_vyksta = False
+if max_ejimu == 9:
+    print(veiksmo_laukas[7:10])
+    print(veiksmo_laukas[4:7])
+    print(veiksmo_laukas[1:4])
+    print("Lygiosios")
+
+
+
+
 
 # todo 2. Teisingai fiksuotų žaidėjo laimėjimą ir stabdytų žaidimą
 # todo  3. Žaidimas vyktų konsolėje, grafinio interfeiso nereikia (bet galima daryti, tada konsolės nebereikia)

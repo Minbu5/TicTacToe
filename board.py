@@ -6,7 +6,15 @@ class Lenta:
         self.max_ejimu = 0
         self.zaidimas_vyksta = True
 
-    def veiksmo_lauko_vaizdas(self):
+    def veiksmo_lauko_vaizdavimas(self, skaiciukas=1, zenkliukas='+'):
+        '''
+        Funkcija keicia skaiciu nurodytame indexe(skaiciukas int)
+        i nurodyta simboli (zenkliukas str)
+        :return: None
+        '''
+        # padavus lauko skaiciu:
+        self.veiksmo_laukas[skaiciukas] = zenkliukas
+
         print(self.veiksmo_laukas[7:10])
         print(self.veiksmo_laukas[4:7])
         print(self.veiksmo_laukas[1:4])
@@ -33,7 +41,20 @@ class Lenta:
                 self.zaidimas_vyksta = False
         return self.zaidimas_vyksta
 
+    def Lygiosios(self):
+        '''
+        funkcija tikrina ar maximalus ejimu skaicius nevirsytas.
+        Jei pasiektas grazina False.
+        :return: Bolean
+        '''
+        if self.max_ejimu == 9:
+            self.zaidimas_vyksta = False
+        return self.zaidimas_vyksta
+
+
 
 lenta = Lenta()
-lenta.veiksmo_lauko_vaizdas()
-print(lenta.laimejimo_tikrinimas("193"))
+lenta.veiksmo_lauko_vaizdavimas()
+print(lenta.laimejimo_tikrinimas("1930"))
+print(lenta.veiksmo_laukas[1])
+

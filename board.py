@@ -19,9 +19,15 @@ class Lenta:
 
     def laukelio_keitimas(self, indeksas, zenklas):
         '''Funkcija keicia laukeli matricoje zaidejo zenklu'''
-        self.veiksmo_laukas[indeksas] = zenklas
-        self.max_ejimu += 1
+        if indeksas != 0:
+            try:
+                self.veiksmo_laukas[indeksas] = zenklas
+                self.max_ejimu += 1
+            except IndexError:
+                print(f"Toks pasirinkimas ({indeksas}) negalimas! Galima rinktis tik skaiciu nuo 1 iki 9")
 
+        else:
+            print("Toks pasirinkimas negalimas! Galima rinktis tik skaiciu nuo 1 iki 9")
     def lygiosios(self):
         '''
         funkcija tikrina ar pasiektas maximalus ejimu skaicius(9).

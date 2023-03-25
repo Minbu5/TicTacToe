@@ -4,3 +4,6 @@
 # Žaidimas vyktų konsolėje, grafinio interfeiso nereikia (bet galima daryti, tada konsolės nebereikia)
 # Sukurtą žaidimą paskelbti github repozitorijoje, nuorodą paskelbti teamsuose,
 # tam skirtoje užduotyje (Assignments)
+
+# Papildomi:
+# Tikrintu ar nepasirinktas jau pazymetas skaicius ir ar skaicius.

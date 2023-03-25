@@ -9,6 +9,8 @@ class Zaidejas:
         self.ejimu_str = ""
         self.laimejimimo_salygos = ["123", "456", "789", "147", "258", "369", "159", "753"]
 
+
+# todo  Tikrintu ar nepasirinktas simbolis(raide).
     def zaidejo_pasirinkimas(self):
         '''
         Funkcija skirta zaidejo langelio pasirinkimui, kuris bus isrekstas kaip
@@ -16,9 +18,21 @@ class Zaidejas:
 
         :return: int
         '''
-        indeksas = int(input(f"Iveskite norimo pazymeti {self.zenklas} zenklu lauko numeri: "))
-        self.ejimu_str += str(indeksas)
-        return indeksas
+        klausti = True
+        while klausti:
+            try:
+                indeksas = int(input(f"Iveskite norimo pazymeti {self.zenklas} zenklu lauko numeri: "))
+                if 0 < indeksas < 10:
+                    self.ejimu_str += str(indeksas)
+                    klausti = False
+                    return indeksas
+                else:
+                    print(f"Toks pasirinkimas ({indeksas}) negalimas! Galima rinktis tik skaiciu nuo 1 iki 9")
+
+            except ValueError:
+                print("Toks pasirinkimas (raides) negalimas! Galima rinktis tik skaiciu nuo 1 iki 9")
+
+
 
     def laimejimo_tikrinimas(self):
         '''

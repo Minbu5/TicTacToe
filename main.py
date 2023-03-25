@@ -1,10 +1,5 @@
 from board import Lenta
 from player import Zaidejas
-# Leistų žaisti dviems žaidėjams (X ir O).
-# Teisingai fiksuotų žaidėjo laimėjimą ir stabdytų žaidimą
-# Žaidimas vyktų konsolėje, grafinio interfeiso nereikia (bet galima daryti, tada konsolės nebereikia)
-# Sukurtą žaidimą paskelbti github repozitorijoje, nuorodą paskelbti teamsuose,
-# tam skirtoje užduotyje (Assignments)
 
 lenta = Lenta()
 lenta.veiksmo_lauko_vaizdavimas() # sukuriame zaidimo erdve

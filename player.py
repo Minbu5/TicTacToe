@@ -1,8 +1,9 @@
-
 class Zaidejas:
     '''
-    Klase nusako zaideja, o funkcijos tikrina ar jis laimejo
+    Klase nusako zaideja, o funkcijos leidzia pasirinkti langeli
+    ir seka ar zaidejas laimejo
     '''
+
     def __init__(self, zenklas):
         self.zenklas = zenklas
         self.ejimu_str = ""
@@ -12,7 +13,8 @@ class Zaidejas:
         '''
         Funkcija skirta zaidejo langelio pasirinkimui, kuris bus isrekstas kaip
         int, ir pasirinktu langeliu skaicu kaupimui kaip string
-        :return:
+
+        :return: int
         '''
         indeksas = int(input(f"Iveskite norimo pazymeti {self.zenklas} zenklu lauko numeri: "))
         self.ejimu_str += str(indeksas)
@@ -25,17 +27,16 @@ class Zaidejas:
         visus 3 skaicius) (Dvi istrizaines trys horizontales ir trys vertikales)
         Grazina True, jeigu stringe yra laimejimo kombinacija, arba False jei ne.
 
-        :param ejimu_str: skaicius string tipo bet kokio ilgio
         :return: Bolean
         '''
-        for numeris in self.laimejimimo_salygos: # pasirenkame is eiles laimingus skaicius(kombinacijas)
+        for numeris in self.laimejimimo_salygos:  # pasirenkame is eiles laimingus skaicius(kombinacijas)
             laimejimo_skaicius = []
             counter = 0
-            for skaiciukas in numeris: # numeri isskaidome i pavienius skaicius
-                laimejimo_skaicius.append(skaiciukas) # prisegame pavieni skaiciu i laimejimo_skaiciu lista
-                if skaiciukas in self.ejimu_str: # jei toks skaicius buvo pasirinktas tuomet pridesim counteri
+            for skaiciukas in numeris:  # numeri isskaidome i pavienius skaicius
+                laimejimo_skaicius.append(skaiciukas)  # prisegame pavieni skaiciu i laimejimo_skaiciu lista
+                if skaiciukas in self.ejimu_str:  # jei toks skaicius buvo pasirinktas tuomet pridesim counteri
                     counter += 1
-                if counter == 3: # jei counteris pasieks 3 reiskia visi laimigo skaiciaus skaiciai, t.y pozicijos surinktos
-                    print(f"{self.zenklas} zaidejas laimejo!") # ir eilute is 3 surinkta
+                if counter == 3:  # jei counteris pasieks 3 reiskia visi laimigo skaiciaus skaiciai, t.y pozicijos surinktos
+                    print(f"{self.zenklas} zaidejas laimejo!")  # ir eilute is 3 surinkta
                     return True
         return False

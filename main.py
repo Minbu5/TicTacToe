@@ -5,10 +5,11 @@ board = Tboard()
 pl_1 = Player('X')
 pl_2 = Player('O')
 
+print(board.intro)
 while True:
     # __________________P1___________________________
     board.brd_displ()
-    while True:  # choice_validator will ask continuosly for right input
+    while True:  # choice_validator will ask continuously for right input
         move = pl_1.choice()
         if board.choice_validator(move):
             board.fld_kill(move, pl_1.symb)

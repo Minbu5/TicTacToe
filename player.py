@@ -1,6 +1,6 @@
 class Player:
     """
-    Class is to define player, and he's actions
+    Is to define player, and he's actions
     during game
     """
 
@@ -11,10 +11,10 @@ class Player:
 
     def choice(self):
         """
-        Function for player choice input.
+        For player choice input.
         :return: str
         """
-        choice = input(f"Iveskite norimo pazymeti {self.symb} zenklu lauko numeri: ")
+        choice = input(f"Iveskite norimo pažymėti {self.symb} ženklu lauko numerį: ")
         return choice
 
     def moves_reg(self, move):
@@ -23,12 +23,12 @@ class Player:
 
     def win_check(self):
         """
-        Function checks if player reached wining coditions.
+        Checks if player reached wining coditions.
         - Has any 3 digits from win_cond list.
         - win_cond digits list represents 2 diagonals, 3 verticals and 3 horizontals
         - Returns True if wining reached or False if not
 
-        :return: Bolean
+        :return: boolean
         """
         for num in self.win_cond:  # takes wining combination from list win_cond
             win_numb = []

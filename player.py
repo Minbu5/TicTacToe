@@ -1,9 +1,9 @@
-
 class Player:
     """
     Class is to define player, and he's actions
     during game
     """
+
     def __init__(self, symb="*"):
         self.symb = symb
         self.moves_str = ""
@@ -16,6 +16,7 @@ class Player:
         """
         choice = input(f"Iveskite norimo pazymeti {self.symb} zenklu lauko numeri: ")
         return choice
+
     def moves_reg(self, move):
         """ Registers moves. Move here is an integer"""
         self.moves_str += str(move)
@@ -37,9 +38,6 @@ class Player:
                 if dig in self.moves_str:  # if we have this number in moves, than we count
                     counter += 1
                 if counter == 3:  # when counter reaches 3 this means we have winnig number in our moves
-                    print(f"{self.symb} zaidejas laimejo!") # Do we need this???
+                    print(f"{self.symb} zaidejas laimejo!")  # Do we need this???
                     return True
         return False
-
-px = Player()
-px.win_check()

@@ -1,56 +1,45 @@
-from board import Lenta
-class Zaidejas:
-    '''
-    Klase nusako zaideja, o funkcijos leidzia pasirinkti langeli
-    ir seka ar zaidejas laimejo
-    '''
 
-    def __init__(self, zenklas):
-        self.zenklas = zenklas
-        self.ejimu_str = ""
-        self.laimejimimo_salygos = ["123", "456", "789", "147", "258", "369", "159", "753"]
+class Player:
+    """
+    Class is to define player, and he's actions
+    during game
+    """
+    def __init__(self, symb="*"):
+        self.symb = symb
+        self.moves_str = ""
+        self.win_cond = ["123", "456", "789", "147", "258", "369", "159", "753"]
 
+    def choice(self):
+        """
+        Function for player choice input.
+        :return: str
+        """
+        choice = input(f"Iveskite norimo pazymeti {self.symb} zenklu lauko numeri: ")
+        return choice
+    def moves_reg(self, move):
+        """ Registers moves. Move here is an integer"""
+        self.moves_str += str(move)
 
-
-# todo  Tikrintu ar nepasirinktas simbolis(raide).
-    def zaidejo_pasirinkimas(self):
-        '''
-        Funkcija skirta zaidejo langelio pasirinkimui, kuris bus isrekstas kaip
-        int, ir pasirinktu langeliu skaicu kaupimui kaip string
-
-        :return: int
-        '''
-        klausti = True
-        while klausti:
-            try:
-                indeksas = int(input(f"Iveskite norimo pazymeti {self.zenklas} zenklu lauko numeri: "))
-                if 0 < indeksas < 10:
-                    self.ejimu_str += str(indeksas)
-                    klausti = False
-                    return indeksas
-                else:
-                    print(f"Toks pasirinkimas ({indeksas}) negalimas! Galima rinktis tik skaiciu nuo 1 iki 9")
-
-            except ValueError:
-                print("Toks pasirinkimas (raides) negalimas! Galima rinktis tik skaiciu nuo 1 iki 9")
-
-    def laimejimo_tikrinimas(self):
-        '''
-        funkcija tikrina ar zaidejas turi susirinkes laimejimo kombinacija
-        (galima laimeti turint stringe bet kurios laimejimo kombinacijos
-        visus 3 skaicius) (Dvi istrizaines trys horizontales ir trys vertikales)
-        Grazina True, jeigu stringe yra laimejimo kombinacija, arba False jei ne.
+    def win_check(self):
+        """
+        Function checks if player reached wining coditions.
+        - Has any 3 digits from win_cond list.
+        - win_cond digits list represents 2 diagonals, 3 verticals and 3 horizontals
+        - Returns True if wining reached or False if not
 
         :return: Bolean
-        '''
-        for numeris in self.laimejimimo_salygos:  # pasirenkame is eiles laimingus skaicius(kombinacijas)
-            laimejimo_skaicius = []
+        """
+        for num in self.win_cond:  # takes wining combination from list win_cond
+            win_numb = []
             counter = 0
-            for skaiciukas in numeris:  # numeri isskaidome i pavienius skaicius
-                laimejimo_skaicius.append(skaiciukas)  # prisegame pavieni skaiciu i laimejimo_skaiciu lista
-                if skaiciukas in self.ejimu_str:  # jei toks skaicius buvo pasirinktas tuomet pridesim counteri
+            for dig in num:  # split this comb into single digits
+                win_numb.append(dig)  # append digit to new list for compare
+                if dig in self.moves_str:  # if we have this number in moves, than we count
                     counter += 1
-                if counter == 3:  # jei counteris pasieks 3 reiskia visi laimigo skaiciaus skaiciai, t.y pozicijos surinktos
-                    print(f"{self.zenklas} zaidejas laimejo!")  # ir eilute is 3 surinkta
+                if counter == 3:  # when counter reaches 3 this means we have winnig number in our moves
+                    print(f"{self.symb} zaidejas laimejo!") # Do we need this???
                     return True
         return False
+
+px = Player()
+px.win_check()

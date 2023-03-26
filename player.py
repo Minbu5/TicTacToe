@@ -1,3 +1,4 @@
+from board import Lenta
 class Zaidejas:
     '''
     Klase nusako zaideja, o funkcijos leidzia pasirinkti langeli
@@ -8,6 +9,7 @@ class Zaidejas:
         self.zenklas = zenklas
         self.ejimu_str = ""
         self.laimejimimo_salygos = ["123", "456", "789", "147", "258", "369", "159", "753"]
+
 
 
 # todo  Tikrintu ar nepasirinktas simbolis(raide).
@@ -31,8 +33,6 @@ class Zaidejas:
 
             except ValueError:
                 print("Toks pasirinkimas (raides) negalimas! Galima rinktis tik skaiciu nuo 1 iki 9")
-
-
 
     def laimejimo_tikrinimas(self):
         '''

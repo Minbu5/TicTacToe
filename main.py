@@ -17,8 +17,9 @@ while True:
         break
 
     lenta.laukelio_keitimas(zaid_2.zaidejo_pasirinkimas(), zaid_2.zenklas) # zaidejas2 zymi laukeli
-    lenta.veiksmo_lauko_vaizdavimas() # parodoma lenta su zaidejo pazymejimu
+    lenta.veiksmo_lauko_vaizdavimas()  # parodoma lenta su zaidejo pazymejimu
+
     if zaid_2.laimejimo_tikrinimas(): # tikrinam ar zaidejas2 laimejo
-        break
+            break
 
 

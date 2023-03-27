@@ -53,7 +53,6 @@ class Tboard:
         :return: boolean
         """
         if self.max_moves == 9:
-            print("Lygiosios.")
             return True
         return False
 

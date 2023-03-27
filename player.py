@@ -14,7 +14,7 @@ class Player:
         For player choice input.
         :return: str
         """
-        choice = input(f"Iveskite norimo pažymėti {self.symb} ženklu lauko numerį: ")
+        choice = input(f"Iveskite norimo pažymėti {self.symb} ženklu lauko numerį ir spauskite ENTER: ")
         return choice
 
     def moves_reg(self, move):

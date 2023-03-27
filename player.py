@@ -1,3 +1,4 @@
+from colorama import Fore, Style
 class Player:
     """
     Is to define player, and he's actions
@@ -38,6 +39,6 @@ class Player:
                 if dig in self.moves_str:  # if we have this number in moves, than we count
                     counter += 1
                 if counter == 3:  # when counter reaches 3 this means we have winnig number in our moves
-                    print(f"{self.symb} zaidejas laimejo!")  # Do we need this???
+                    # print(f"{self.symb} zaidejas laimejo!")
                     return True
         return False

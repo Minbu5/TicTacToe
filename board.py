@@ -1,19 +1,37 @@
+from prettytable import PrettyTable, prettytable
+from colorama import Fore, Style
+from logo import logo
+
 class Tboard:
     """Defines board usage by the game rules"""
+
     def __init__(self):
         self.flds = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
         self.max_moves = 0
-        self.intro = "Jus sveikina žaidimas kryžiukai ir nuliukai (TicTacToe)\n" \
-                     "Norėdami pasirinkti laukelį spauskite atitinkamą skaičių klaviatūroje"
-
+        self.intro = logo
 
     def brd_displ(self):
         """Shows board in console
+
         :return None"""
-        # spauzdina 3 masyvus
-        print(self.flds[7:10])
-        print(self.flds[4:7])
-        print(self.flds[1:4])
+        # split flds to 3 lists for pretty table data rows
+        row1 = []
+        row2 = []
+        row3 = []
+        for dig in self.flds[::-1]:
+            if len(row1) < 3:
+                row1.append(dig)
+            elif len(row2) < 3:
+                row2.append(dig)
+            elif len(row3) < 3:
+                row3.append(dig)
+        tbl1 = PrettyTable()
+        tbl1.header = False
+        tbl1.add_row(row1[::-1])
+        tbl1.add_row(row2[::-1])
+        tbl1.add_row(row3[::-1])
+        tbl1.hrules = prettytable.ALL
+        print(tbl1)
 
     def fld_kill(self, choice, symb):
 
@@ -53,12 +71,11 @@ class Tboard:
                 if choice in self.flds:
                     return True
                 else:
-                    print(f"Langelis {choice} jau užimtas. Rinkitės kitą.")
+                    print(f"Langelis {Fore.RED}{choice}{Style.RESET_ALL} jau užimtas. Rinkitės kitą.")
                     return False
             else:
-                print(f"Toks pasirinkimas ({choice}) nėra galimas! Rinktės skaicių nuo 1 iki 9")
+                print(f"Toks pasirinkimas ({Fore.RED}{choice}{Style.RESET_ALL}) nėra galimas! Rinktės skaicių nuo 1 iki 9")
                 return False
         except ValueError:
-             print("Toks pasirinkimas (raides, simboliai) nėra galimas! Rinktės skaicių nuo 1 iki 9")
-             return False
-
+            print(f"Toks pasirinkimas ({Fore.RED}raides, simboliai{Style.RESET_ALL}) nėra galimas! Rinktės skaicių nuo 1 iki 9")
+            return False

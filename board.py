@@ -2,6 +2,7 @@ from prettytable import PrettyTable, prettytable
 from colorama import Fore, Style
 from logo import logo
 
+
 class Tboard:
     """Defines board usage by the game rules"""
 
@@ -13,7 +14,7 @@ class Tboard:
     def brd_displ(self):
         """Shows board in console
 
-        :return None"""
+        :return: None"""
         # split flds to 3 lists for pretty table data rows
         row1 = []
         row2 = []
@@ -74,8 +75,10 @@ class Tboard:
                     print(f"Langelis {Fore.RED}{choice}{Style.RESET_ALL} jau užimtas. Rinkitės kitą.")
                     return False
             else:
-                print(f"Toks pasirinkimas ({Fore.RED}{choice}{Style.RESET_ALL}) nėra galimas! Rinktės skaicių nuo 1 iki 9")
+                print(f"Toks pasirinkimas ({Fore.RED}{choice}{Style.RESET_ALL}) "
+                      f"nėra galimas! Rinktės skaicių nuo 1 iki 9")
                 return False
         except ValueError:
-            print(f"Toks pasirinkimas ({Fore.RED}raides, simboliai{Style.RESET_ALL}) nėra galimas! Rinktės skaicių nuo 1 iki 9")
+            print(f"Toks pasirinkimas ({Fore.RED}raides, simboliai{Style.RESET_ALL})"
+                  f" nėra galimas! Rinktės skaicių nuo 1 iki 9")
             return False

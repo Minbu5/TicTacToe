@@ -1,4 +1,3 @@
-from colorama import Fore, Style
 class Player:
     """
     Is to define player, and he's actions

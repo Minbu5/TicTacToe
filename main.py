@@ -3,8 +3,6 @@ from player import Player
 from colorama import Fore, Style
 from logo import x_win, o_win, draw
 
-import os
-
 board = Tboard()
 pl_1 = Player(f"{Fore.BLUE}X{Style.RESET_ALL}")
 
@@ -25,7 +23,6 @@ while True:
         board.brd_displ()
         break
 
-
     if board.draw():  # draw check
         print(draw)
         board.brd_displ()
@@ -43,4 +40,3 @@ while True:
         print(o_win)
         board.brd_displ()
         break
-

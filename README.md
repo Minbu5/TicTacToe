@@ -9,5 +9,3 @@ TicTacToe zaidimas pirmam atsiskaitymui Python kurse Code Academy.
 PAPILDOMAI (nebūtina):
 Kad baigus žaidimą, programa neišsijungtų, o leistų pakartoti žaidimą. Taip pat būtų galimybė išjungti programą.
 -Kad žaidimas skaičiuotų abiejų žaidėjų sesijos laimėjimus.
--Leistų žaisti prieš kompiuterį (sukurti logiką, kaip jis elgsis)
--Padaryti GUI (su tkinter, pygame, dar kažkuo)
